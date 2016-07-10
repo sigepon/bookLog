@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @book.price %>
+</p>
+
+<p>
+  <strong>Publish:</strong>
+  <%= @book.publish %>
+</p>
+
+<%= link_to '編集', edit_book_path(@book) %> |
+<%= link_to '戻る', books_path %> |
+<%= link_to 'レビューを書く', new_book_review_path(@book) %> |
+
+<hr>
+
+<h2>レビューを書く</h2>
+<% @book.reviews.each do |review| %>
+<p>
+    <%= review.body %><br>
+    by <%= review.user.email %>
+</p>
+<% end %>
+<hr>
+<h2>レビューを残したユーザ一覧</h2>
+<% @book.users.each do |user| %>
+    <p><%= user.email %></p>
+<% end %>
+
